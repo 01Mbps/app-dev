@@ -1,38 +1,22 @@
 import 'package:firstapp/chat_page.dart';
 import 'package:flutter/material.dart';
+import 'package:chat_app/chat_page.dart'; // Your main chat page
+import 'package:chat_app/counter_stateful_demo.dart'; // Optional feature page
+import 'package:chat_app/login_page.dart'; // Your actual login page
 
 void main() {
-  runApp(Chatapp());
+  runApp(const ChatApp()); // Main entry point
 }
 
-class Chatapp extends StatelessWidget {
-  const Chatapp({super.key});
+class ChatApp extends StatelessWidget {
+  const ChatApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Flutter Chat App",
       theme: ThemeData(primarySwatch: Colors.indigo),
-      home: ChatPage(),
-    );
-  }
-}
-
-class Loginpage extends StatelessWidget {
-  const Loginpage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      drawer: Drawer(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // ignore: avoid_print
-          print('Button Clicked');
-        },
-      ),
-      body: Text('Patweak'),
+      home: const ChatPage(), // Set your default landing screen here
     );
   }
 }
