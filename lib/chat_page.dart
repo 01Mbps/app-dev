@@ -20,20 +20,24 @@ class _ChatPageState extends State<ChatPage> {
 
 
   _loadInitialMessages() async{
-    final response = await rootBundle.loadString('assets/mock_messages.json');
-
+   
+    
+    rootBundle.loadString('assets/mock_messages.json').then((response) {
+  
     final List <dynamic> decodeList = jsonDecode(response) as List;
 
     final List<ChatMessageEntity> _chatMessages = decodeList.map((listItem) {
-      return ChatMessageEntity.fromJson(listItem);
-    }). toList();
-
-    print(_chatMessages.length);
-
+@@ -33,64 +33,70 @@
     //Finally, add the messages to the list
     setState(() {
       _messages = _chatMessages;
+
+        });
+    }).then((_) {
+      print('Done loading messages');
     });
+
+    print('Someething');
   }
 
   onMessageSent(ChatMessageEntity entity) {
@@ -44,17 +48,48 @@ class _ChatPageState extends State<ChatPage> {
   @override
   void initState() {
     _loadInitialMessages();
-@@ -45,7 +50,6 @@
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
 
- 
+
     final userName = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
-@@ -83,8 +87,10 @@
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        title: Text('Hii $userName!'),
+        actions: [
+          IconButton(
+              onPressed: (){
+                Navigator.pushReplacementNamed(context, '/');
+                print('Icon Pressed');
+              }, 
+              icon: const Icon(Icons.logout)),
+
+        ],
+      ),
+
+      body: Column(
+        children: [
+          Expanded(
+
+
+            child: ListView.builder(
+              itemCount: _messages.length,
+              itemBuilder: (context, index) {
+
+              return ChatBubble(
+
+                alignment: _messages[index].author.username == 'Elton Bernil'
+                    ?Alignment.centerRight
+                    : Alignment.centerLeft,
+
                 entity: _messages[index],);
             })),
-
 
         ChatInput(
           onSubmit: onMessageSent,
