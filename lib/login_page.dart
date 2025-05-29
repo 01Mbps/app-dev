@@ -1,4 +1,5 @@
 import 'package:chat_app/chat_page.dart';
+import 'package:chat_app/utils/spaces.dart';  
 import 'package:chat_app/utils/textfield_styles.dart';
 import 'package:chat_app/widgets/login_text_field.dart';
 import 'package:flutter/material.dart';
@@ -95,9 +96,7 @@ final passwordController = TextEditingController();
                     controller: passwordController, hintText: 'Enter your password',
                   ),
 
-                  SizedBox(
-                    height: 24
-                    ),
+                  verticalSpacing(24),
 
                   TextFormField(
                     controller: passwordController,
@@ -114,9 +113,7 @@ final passwordController = TextEditingController();
               ),
             ),
 
-             SizedBox(
-              height: 24
-            ),
+            verticalSpacing(24),
 
             ElevatedButton(
               onPressed: (){ 
@@ -132,7 +129,7 @@ final passwordController = TextEditingController();
 
             GestureDetector(
               onDoubleTap: () {
-                print('Double Tapped');
+                print('Linked Clicked');
               },
 
 
