@@ -5,12 +5,12 @@
     },
     "createdAt": "2023-10-01T12:00:00Z",
     "id": "1",
-    "text": "Hello, how are you?"
+     "text": "Hi"
   },
 
   {
     "author": {
-      "name": "Jane Smith"
+      "name": "Patrick"
     },
     "createdAt": "2023-10-01T12:05:00Z",
     "id": "2",
@@ -24,7 +24,7 @@
     "createdAt": "2023-10-01T12:10:00Z",
     "id": "3",
     "text": "Just working on some code.",
-    "image": "https://example.com/image.jpg"
+    "image": "https://www.shutterstock.com/image-photo/asian-software-developers-working-on-600nw-2470769829.jpg"
     
   },
 
