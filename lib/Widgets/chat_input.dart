@@ -17,7 +17,8 @@ class _ChatInputState extends State<ChatInput> {
   final chatMessageController = TextEditingController();
   String _selectedImageUrl = '';
 
-  void onSendButtonPressed() {
+  void onSendButtonPressed() async {
+    String? userNameFromCache = await context.read<AuthService>().getUserName();
     if (chatMessageController.text.trim().isEmpty && _selectedImageUrl.isEmpty)
       return;
 
@@ -25,8 +26,7 @@ class _ChatInputState extends State<ChatInput> {
       text: chatMessageController.text.trim(),
       id: '244',
       createdAt: DateTime.now().millisecondsSinceEpoch,
-      author: Author(username: context.read<AuthService>().getUserName()),
-      imageUrl: _selectedImageUrl,
+      author: Author(username: userNameFromCache!),
     );
 
     widget.onSubmit(newChatMessage);

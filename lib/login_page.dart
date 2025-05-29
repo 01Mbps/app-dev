@@ -1,8 +1,10 @@
 import 'package:chat_app/chat_page.dart';
+import 'package:chat_app/services/auth_service.dart';
 import 'package:chat_app/utils/spaces.dart';  
 import 'package:chat_app/utils/textfield_styles.dart';
 import 'package:chat_app/widgets/login_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:social_media_buttons/social_media_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -16,14 +18,13 @@ class LoginPage extends StatelessWidget {
 final _formKey = GlobalKey<FormState>();
 
   // Function to handle login
-void loginUser(context) {
-
+Future<void> loginUser(BuildContext context) async {
   if (_formKey.currentState != null && _formKey.currentState!.validate()) {
 
     print(userNameController.text);
     print(passwordController.text);
-
-    Navigator.pushReplacementNamed(
+      await context.read<AuthService>().loginUser(userNameController.text);
+        Navigator.pushReplacementNamed(
       context,
       '/chat',
       arguments: userNameController.text,
@@ -115,8 +116,8 @@ void loginUser(context) {
              verticalSpacing(24),
 
             ElevatedButton(
-              onPressed: (){ 
-                loginUser(context);
+               onPressed: () async {
+                      await loginUser(context);
               },
 
               style: ElevatedButton.styleFrom(

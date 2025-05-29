@@ -24,12 +24,10 @@ class LoginTextField extends StatelessWidget {
           return validator!(value);
         }
       },
-
       controller: controller,
       decoration: InputDecoration(
-        hintText: 'Add your username',
+        hintText: '$hintText',
         hintStyle: ThemeTextStyle.loginTextFieldStyle,
-
         border: OutlineInputBorder(),
       ),
     );
