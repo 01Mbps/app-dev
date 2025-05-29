@@ -3,6 +3,7 @@ import 'package:chat_app/utils/spaces.dart';
 import 'package:chat_app/utils/textfield_styles.dart';
 import 'package:chat_app/widgets/login_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class LoginPage extends StatelessWidget {
@@ -31,6 +32,8 @@ Navigator.pushReplacementNamed(
 }
 final userNameController = TextEditingController();
 final passwordController = TextEditingController();
+
+final _mainUrl = 'https://github.com/callmeEltonBernil/chat_app/commits/main/';
 
 
   @override
@@ -130,15 +133,18 @@ final passwordController = TextEditingController();
 
 
             GestureDetector(
-              onDoubleTap: () {
-                print('Linked Clicked');
-              },
+              onTap: () async {
+                print('Link clicked');
+                if (!await launch(_mainUrl)) {
+                  throw Exception('Could not launch this URL');
+                 }
+                },
 
 
               child: Column(
                 children: [
                   Text('Find us on'),
-                  Text('https://patrickCr8s.com'),
+                     Text(_mainUrl),
                 ],
               ),
             ),
