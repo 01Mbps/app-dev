@@ -1,0 +1,41 @@
+[
+  {
+    "author": {
+      "name": "John Doe"
+    },
+    "createdAt": "2023-10-01T12:00:00Z",
+    "id": "1",
+    "text": "Hello, how are you?"
+  },
+
+  {
+    "author": {
+      "name": "Jane Smith"
+    },
+    "createdAt": "2023-10-01T12:05:00Z",
+    "id": "2",
+    "text": "I'm good, thanks! How about you?"
+  },
+
+  {
+    "author": {
+      "name": "John Paul"
+    },
+    "createdAt": "2023-10-01T12:10:00Z",
+    "id": "3",
+    "text": "Just working on some code.",
+    "image": "https://example.com/image.jpg"
+    
+  },
+
+
+  {
+    "author": {
+      "name": "Chris Paul"
+    },
+    "createdAt": "2023-10-01T12:10:00Z",
+    "id": "3",
+    "text": "Just Doing some work."
+  }
+
+]
