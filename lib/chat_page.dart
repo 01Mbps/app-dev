@@ -76,8 +76,7 @@ class _ChatPageState extends State<ChatPage> {
               onPressed: () {
                 context.read<AuthService>().updateUserName("New Name!");
               },
-              icon: Icon(Icons.logout)),
-
+              icon: Icon(Icons.change_circle)),
         ],
       ),
 
