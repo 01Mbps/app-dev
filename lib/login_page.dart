@@ -119,11 +119,13 @@ final passwordController = TextEditingController();
               onPressed: (){ 
                 loginUser(context);
               },
+              style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.deepPurple, // Set background color
+            ),
 
               child: Text(
                 'Login', 
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w300),
-              ),
+                style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.w300),
             ),
 
 
