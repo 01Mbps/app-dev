@@ -1,3 +1,4 @@
+import 'package:firstapp/chat_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class Chatapp extends StatelessWidget {
     return MaterialApp(
       title: "Flutter Chat App",
       theme: ThemeData(primarySwatch: Colors.indigo),
-      home: Loginpage(),
+      home: ChatPage(),
     );
   }
 }

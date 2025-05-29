@@ -1,56 +1,86 @@
 import 'package:flutter/material.dart';
 
+
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  const LoginPage({Key? key}) : super(key: key);
+
+void loginUser() {
+    print('Login successful');
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      drawer: Drawer(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print('Button Clicked');
-        },
-      ),
-      body: Column(
-        children: [
-          Text(
-            'Let\'s sign you in!',
-            style: TextStyle(
-              fontSize: 30,
-              color: Colors.deepOrange,
-              letterSpacing: 0.5,
-            ),
-          ),
-          Text(
-            'Welcome Back Patweak!',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-              color: Colors.blueAccent,
-            ),
-          ),
-          Image.network('https://w.wallhaven.cc/full/9o/wallhaven-9oxjj8.jpg'),
-          Container(
-            height: 150,
-            width: 150,
-            child: FlutterLogo(),
-            padding: EdgeInsets.all(50),
-            margin: EdgeInsets.all(50),
-            decoration: BoxDecoration(
-              image: DecorationImage( image: NetworkImage(url)
 
-              )
-            Colors.cyanAccent , 
-            borderRadius: BorderRadius.circular(24)),
-          )
-        ],
+
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+
+            children: [
+              const Text(
+                'Let\'s sign you in!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 0.5,
+                ),
+              ),
+
+
+              const Text(
+                'Welcome back!\nYou\'ve been missed!',
+
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20,
+                  color: Colors.blueGrey,
+                ),
+              ),
+
+              Image.network(
+                'https://3009709.youcanlearnit.net/Alien_LIL_131338.png',
+                height: 200,
+              ),
+
+            ElevatedButton(
+              onPressed: loginUser, 
+
+              child: Text(
+              'Click Me' , 
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
+              )),
+                InkWell(
+              splashColor: Colors.red,
+              onDoubleTap: () {
+                print('Double Tapped');
+              },
+
+              onLongPress: () {
+                print('Long Pressed');
+              },
+
+              onTap: () {
+
+                print('Linked Clicked');
+              },
+              child: Column(
+                children: [
+                  Text('Find us on'),
+                  Text('https://patrickCr8s.com'),
+                ],
+              ),
+            ),
+            ],
+
+          ),
+          ),
       ),
     );
   }
-}
-
-mixin fontWeight {
-  var bold;
-}
