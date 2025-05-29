@@ -36,9 +36,9 @@ class ChatApp extends StatelessWidget {
             builder: (context, AsyncSnapshot<bool> snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
                 if (snapshot.hasData && snapshot.data!) {
-                  return ChatPage();
-                } else
                   return LoginPage();
+                } else
+                  return ChatPage();
               }
               return CircularProgressIndicator();
             }),
