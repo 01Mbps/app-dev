@@ -13,17 +13,18 @@ class ChatApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      title: "Chat App",
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.blue,
-          foregroundColor: Colors.black,
-        ),
-      ),
-      //
-      home: LoginPage(),
-      routes: {'/chat': (context) => ChatPage()},
-    );
+        title: "Chat App",
+        theme: ThemeData(
+            canvasColor: Colors.transparent,
+            primarySwatch: Colors.deepPurple,
+            appBarTheme: const AppBarTheme(
+              backgroundColor: Colors.blue,
+              foregroundColor: Colors.black,
+            )),
+        //
+        home: LoginPage(),
+        routes: {
+          '/chat': (context) => ChatPage(),
+        });
   }
 }

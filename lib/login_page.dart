@@ -6,6 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:social_media_buttons/social_media_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'Utils/spaces.dart';
+import 'Widgets/login_text_field.dart';
+
 
 class LoginPage extends StatelessWidget {
    LoginPage({Key? key}) : super(key: key);
@@ -34,10 +37,11 @@ void loginUser(context) {
     return Scaffold(
 
 
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Center(
-          child: Column(
+       backgroundColor: Colors.white,
+      body: Center(
+        child: Padding(
+           padding: const EdgeInsets.all(24.0),
+           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
 
@@ -65,9 +69,15 @@ void loginUser(context) {
                 ),
               ),
 
-              Image.asset(
-                'assets/chat_app_image.png',
+              verticalSpacing(24),
+                Container(
                 height: 200,
+                 width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                image: DecorationImage(
+                fit: BoxFit.fitWidth,
+                image: AssetImage('assets/chat_app_image.png')),
+                borderRadius: BorderRadius.circular(56)),
               ),
 
 

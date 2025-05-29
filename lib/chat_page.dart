@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:chat_app/models/image_model.dart';
-import 'package:http/http.dart' as http;
 import 'package:chat_app/repo/image_repository.dart';
 import 'package:chat_app/models/chat_message_entity.dart';
 import 'package:chat_app/widgets/chat_bubble.dart';
@@ -49,15 +48,11 @@ class _ChatPageState extends State<ChatPage> {
       setState(() {});
   }
 
-   
-   
 
-   
 
   @override
   void initState() {
     _loadInitialMessages();
-    
 
     super.initState();
   }
@@ -66,13 +61,28 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
 
 
-
     final userName = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
-@@ -103,33 +84,33 @@
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        title: Text('Hii $userName!'),
+        actions: [
+          IconButton(
+              onPressed: (){
+                Navigator.pushReplacementNamed(context, '/');
+                print('Icon Pressed');
+              }, 
+              icon: const Icon(Icons.logout)),
+
+        ],
+      ),
+
       body: Column(
         children: [
-          
+
           Expanded(
 
 
