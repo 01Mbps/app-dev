@@ -1,44 +1,35 @@
 import 'package:chat_app/chat_page.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
 
-  @override
-  State<LoginPage> createState() => _LoginPageState();
+class LoginPage extends StatelessWidget {
+   LoginPage({Key? key}) : super(key: key);
+
+final _formKey = GlobalKey<FormState>();
+
+  // Function to handle login
+void loginUser(context) {
+
+  if (_formKey.currentState != null && _formKey.currentState!.validate()) {
+
+    print(userNameController.text);
+    print(passwordController.text);
+Navigator.pushNamed(
+ context,
+'/chat',
+      arguments: userNameController.text,
+    );
+    print('Login successful');
+
+  } else {
+    print('Login failed');
+  }
 }
+final userNameController = TextEditingController();
+final passwordController = TextEditingController();
 
-class _LoginPageState extends State<LoginPage> {
-  final _formKey = GlobalKey<FormState>();
-  final userNameController = TextEditingController();
-  final passwordController = TextEditingController();
-
-  void loginUser(BuildContext context) {
-    if (_formKey.currentState != null && _formKey.currentState!.validate()) {
-      print('Username: ${userNameController.text}');
-      print('Password: ${passwordController.text}');
-
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-         builder: (context) => ChatPage(
-          userName: userNameController.text,
-          )));
-
-      print('Login successful');
-    } else {
-      print('Login failed');
-    }
-  }
 
   @override
-  void dispose() {
-    userNameController.dispose();
-    passwordController.dispose();
-    super.dispose();
-  }
-
-   @override
   Widget build(BuildContext context) {
     return Scaffold(
 

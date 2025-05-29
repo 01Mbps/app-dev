@@ -4,12 +4,11 @@ import 'package:flutter/material.dart';
 
 
 class ChatPage extends StatelessWidget {
-  final String userName;
-  const ChatPage({Key? key, required this.userName}) : super(key: key);
-
+ const ChatPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final userName = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
