@@ -7,10 +7,10 @@ class ChatMessageEntity {
 
   ChatMessageEntity({
     required this.text,
-    required this.imageUrl,
     required this.id,
     required this.createdAt,
     required this.author,
+    required this.imageUrl,
   });
 
   factory ChatMessageEntity.fromJson(Map<String, dynamic> json) {
