@@ -17,33 +17,43 @@ void main() async {
   );
 }
 
+class ChangeNotifierProvider {}
+
 class ChatApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp(
-        title: "Chat App",
-        theme: ThemeData(
-            canvasColor: Colors.transparent,
-            primarySwatch: Colors.deepPurple,
-            appBarTheme: const AppBarTheme(
-              backgroundColor: Colors.blue,
-              foregroundColor: Colors.black,
-            )),
-        //
-        home: FutureBuilder<bool>(
-            future: context.read<AuthService>().isLoggedIn(),
-            builder: (context, AsyncSnapshot<bool> snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                if (snapshot.hasData && snapshot.data!) {
-                  return LoginPage();
-                } else
-                  return ChatPage();
-              }
-              return CircularProgressIndicator();
-            }),
-        routes: {
-          '/chat': (context) => ChatPage(),
-        });
+      title: "Chat App",
+      theme: ThemeData(
+        canvasColor: Colors.transparent,
+        primarySwatch: Colors.deepPurple,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.black,
+        ),
+      ),
+      home: FutureBuilder<bool>(
+        future: context.read<AuthService>().isLoggedIn(),
+        builder: (context, AsyncSnapshot<bool> snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasData && snapshot.data!) {
+              return ChatPage(); // user is logged in
+            } else {
+              return LoginPage(); // user is not logged in
+            }
+          }
+          return const Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        },
+      ),
+      routes: {
+        '/chat': (context) => ChatPage(),
+        '/login': (context) => LoginPage(),
+        '/counter': (context) => CounterStatefulDemo(), // You imported this
+      },
+    );
   }
 }
